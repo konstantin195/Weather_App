@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App | Open-Meteo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./styles.css">
+  <!-- Scripts are loaded in dependency order so each module can extend window.WeatherApp. -->
+  <script defer src="./js/state.js"></script>
+  <script defer src="./js/dom.js"></script>
+  <script defer src="./js/weatherCodes.js"></script>
+  <script defer src="./js/api.js"></script>
+  <script defer src="./js/ui.js"></script>
+  <script defer src="./js/app.js"></script>
+</head>
+<body data-theme="night">
+  <main class="page-shell">
+    <!-- Search and quick-action controls for loading weather data. -->
+    <section class="hero-panel" aria-labelledby="app-title">
+      <div class="hero-copy">
+        <h1 id="app-title">Weather<br>Dashboard</h1>
+        <p class="hero-text">
+          Track live conditions, wind, sunlight, UV index, and the short forecast
+          for any city in one clean dashboard.
+        </p>
+      </div>
+
+      <form class="search-form" id="search-form">
+        <label class="sr-only" for="search-input">City name</label>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Example: Sofia, London, Varna..."
+          autocomplete="off"
+          required
+        >
+        <button id="search-button" type="submit">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <span>Search</span>
+        </button>
+      </form>
+
+      <div class="action-row" aria-label="Quick actions">
+        <button class="ghost-button" id="location-button" type="button">
+          <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
+          My location
+        </button>
+        <button class="ghost-button" id="unit-toggle" type="button" disabled aria-pressed="false">
+          Show in &deg;F
+        </button>
+      </div>
+
+      <div class="quick-cities" aria-label="Quick cities">
+        <button type="button" data-city="Sofia">Sofia</button>
+        <button type="button" data-city="London">London</button>
+        <button type="button" data-city="Tokyo">Tokyo</button>
+      </div>
+
+      <p class="loading" id="loading" hidden>
+        <span class="spinner" aria-hidden="true"></span>
+        Loading weather data...
+      </p>
+      <p class="error-message" id="error-message" role="alert" hidden></p>
+    </section>
+
+    <!-- Main weather summary populated after a successful city or location lookup. -->
+    <section class="weather-card is-empty" id="weather-card" aria-live="polite">
+      <div class="card-top">
+        <div>
+          <p class="section-label">Current dashboard</p>
+          <h2 id="city-name">--</h2>
+          <p class="muted" id="country-name">Search for a city to display weather data.</p>
+        </div>
+        <i id="weather-icon" class="fa-solid fa-cloud-sun weather-icon" aria-hidden="true"></i>
+      </div>
+
+      <div class="temperature-block">
+        <p id="temperature">--&deg;C</p>
+        <span id="weather-condition">Waiting for search</span>
+      </div>
+
+      <div class="metric-grid">
+        <article class="metric-card">
+          <span>Wind</span>
+          <strong id="wind-speed">-- km/h</strong>
+        </article>
+        <article class="metric-card">
+          <span>Direction</span>
+          <strong id="wind-direction">--</strong>
+        </article>
+        <article class="metric-card">
+          <span>Feels like</span>
+          <strong id="apparent-temp">--&deg;C</strong>
+        </article>
+        <article class="metric-card">
+          <span>Humidity</span>
+          <strong id="humidity">--%</strong>
+        </article>
+        <article class="metric-card">
+          <span>UV Index</span>
+          <strong id="uv-index">--</strong>
+        </article>
+        <article class="metric-card">
+          <span>Sunrise</span>
+          <strong id="sunrise-time">--</strong>
+        </article>
+        <article class="metric-card">
+          <span>Sunset</span>
+          <strong id="sunset-time">--</strong>
+        </article>
+      </div>
+
+      <p class="updated-line">
+        Last updated: <time id="updated-at">--</time>
+      </p>
+    </section>
+
+    <!-- Five-day forecast cards are rendered dynamically by js/ui.js. -->
+    <section class="forecast-section" id="forecast-section" hidden>
+      <div class="section-heading">
+        <p class="section-label">Forecast</p>
+        <h2>Next 5 days</h2>
+      </div>
+      <div class="forecast-list" id="forecast-list"></div>
+    </section>
+  </main>
+</body>
+</html>
