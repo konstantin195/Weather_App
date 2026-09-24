@@ -1,64 +1,95 @@
 # Weather App
 
-Weather App is a browser-based project built with HTML, CSS, and Vanilla JavaScript. It searches for a city, uses the free Open-Meteo API without registration, and displays current weather, a 5-day forecast, an hourly forecast, and search history.
+Weather App is a responsive browser-based dashboard made with HTML, CSS, and JavaScript.
 
-## Screenshots
+The user can search for a city or use their current location to view live weather conditions and a five-day forecast. Weather data is provided by the free Open-Meteo APIs, so the project does not require an API key.
 
-The final screenshots are saved in the `screenshots` folder.
+## Preview
 
-![Weather App - Sofia](screenshots/weather-app-sofia.png)
-![Weather App - London](screenshots/weather-app-london.png)
+Open `index.html` in a browser or run the project with Live Server. The app loads Sofia by default and also supports direct links such as `index.html?city=London`.
 
 ## Features
 
-- Search weather by city.
-- Current temperature, weather condition, wind speed, wind direction, feels-like temperature, humidity, UV index, sunrise, and sunset.
-- Celsius and Fahrenheit toggle without a new API request.
-- Saved temperature unit preference using localStorage.
-- 5-day forecast.
-- Hourly forecast for the coming hours.
-- Current location button.
-- Expressive dynamic background based on the weather.
-- Recent search history in localStorage.
-- Loading and error states.
+- Search for weather by city name
+- Quick-search buttons for Sofia, London, and Tokyo
+- Current-location weather using browser geolocation
+- Current temperature and weather condition
+- Wind speed and direction
+- Feels-like temperature and humidity
+- UV index, sunrise, and sunset information
+- Five-day weather forecast
+- Celsius and Fahrenheit toggle
+- Saved temperature-unit preference using `localStorage`
+- Dynamic weather icons and backgrounds
+- Loading, offline, and error states
+- Responsive layout for desktop and mobile screens
 
 ## Technologies
 
 - HTML5
 - CSS3
-- JavaScript
+- Vanilla JavaScript
 - Open-Meteo Geocoding API
 - Open-Meteo Forecast API
-- Font Awesome icons
+- Font Awesome
+- GitHub
 
-## How to Run Locally
+## How to Use
 
-1. Open the `weather-app` folder.
-2. Open `index.html` in a browser or use Live Server.
-3. Search for `Sofia`, `London`, or another city.
+1. Open the application in a browser.
+2. Enter a city name in the search field.
+3. Press **Search** to load the latest weather information.
+4. Use **My location** to request weather for your current position.
+5. Press **Show in °F** or **Show in °C** to change the temperature unit.
+6. Select one of the quick-city buttons to load it immediately.
 
-If the browser blocks some external resources when opening the file directly, use Live Server. The app does not need a backend and does not need an API key.
-
-You can also open a direct demo URL, for example `index.html?city=Sofia`. For Fahrenheit, use `index.html?city=Sofia&unit=f`.
-
-## File Structure
+## Project Structure
 
 ```text
 weather-app/
-  index.html
-  styles.css
-  README.md
-  screenshots/
-  js/
-    app.js
-    api.js
-    dom.js
-    state.js
-    storage.js
-    ui.js
-    weatherCodes.js
+├── index.html
+├── styles.css
+├── README.md
+└── js/
+    ├── api.js
+    ├── app.js
+    ├── dom.js
+    ├── state.js
+    ├── ui.js
+    └── weatherCodes.js
 ```
 
-## Code Notes
+## Controls
 
-DOM elements are collected in one object in `js/dom.js`. Open-Meteo logic is in `js/api.js`, visual updates are in `js/ui.js`, and localStorage history is handled in `js/storage.js`.
+The main dashboard contains:
+
+- A city search field and **Search** button
+- A **My location** button
+- A Celsius/Fahrenheit unit toggle
+- Quick-city buttons for Sofia, London, and Tokyo
+- A current-weather card with detailed measurements
+- A five-day forecast section
+
+## How to Run
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/konstantin195/Weather_App.git
+   ```
+
+2. Open the `Weather_App` folder.
+3. Open `index.html` in a browser, or launch it with the Live Server extension in Visual Studio Code.
+4. Search for a city and explore the forecast.
+
+## GitHub Repository
+
+The repository includes:
+
+- All HTML, CSS, and JavaScript source files
+- `README.md` with project information and setup instructions
+- A modular JavaScript structure for API, state, DOM, and UI logic
+
+## Author
+
+Konstantin Angelov
