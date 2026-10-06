@@ -6,6 +6,8 @@ The user can search for a city or use their current location to view live weathe
 
 ## Preview
 
+![Weather App dashboard](https://github.com/user-attachments/assets/9527aeb9-7051-42ed-a47b-75e5f8720861)
+
 Open `index.html` in a browser or run the project with Live Server. The app loads Sofia by default and also supports direct links such as `index.html?city=London`.
 
 ## Features
