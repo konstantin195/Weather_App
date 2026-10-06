@@ -43,22 +43,6 @@ Open `index.html` in a browser or run the project with Live Server. The app load
 5. Press **Show in °F** or **Show in °C** to change the temperature unit.
 6. Select one of the quick-city buttons to load it immediately.
 
-## Project Structure
-
-```text
-weather-app/
-├── index.html
-├── styles.css
-├── README.md
-└── js/
-    ├── api.js
-    ├── app.js
-    ├── dom.js
-    ├── state.js
-    ├── ui.js
-    └── weatherCodes.js
-```
-
 ## Controls
 
 The main dashboard contains:
